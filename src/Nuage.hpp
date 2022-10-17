@@ -52,4 +52,16 @@ Cartesien barycentre_v1(Nuage<T> const &n) {
     return (n.size() == 0) ? Cartesien(0, 0) : Cartesien(x/n.size(), y/n.size());
 }
 
+template <typename T>
+Cartesien barycentre_v2(T cont) {
+    double x, y;
+    for(auto p : cont) {
+        Cartesien c;
+        p.convertir(c);
+        x += c.getX();
+        y += c.getY();
+    }
+    return (cont.size() == 0) ? Cartesien(0, 0) : Cartesien(x/cont.size(), y/cont.size());
+}
+
 #endif
